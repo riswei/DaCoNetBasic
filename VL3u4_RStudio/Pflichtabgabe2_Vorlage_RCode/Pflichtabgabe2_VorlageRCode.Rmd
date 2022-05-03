@@ -1,0 +1,131 @@
+---
+title: "Pflichtabgabe 4 - Vorlage für RCode"
+output: learnr::tutorial
+runtime: shiny_prerendered
+progressive: true
+---
+
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Pflichtabgabe 2 - a) 
+
+### Visualisierungen und Kennzahlen mit Pinguinen
+
+Wir betrachten den „penguins“-Datensatz aus dem R-Package „palmerpenguins“. Verfasst die
+Lösung bitte so, dass sie auch für „Außenstehende“ (ohne Kenntnis der Aufgabenstellung)
+nachvollziehbar ist. Kopiert (ggf. als Screenshot) daher auch die jeweils genutzten Befehle mit in
+die Abgabe und verfasst Antworten in ganzen Sätzen, die den Output der Befehle beschreiben.
+Ob ihr den Output der Befehle „1:1“ mit kopiert oder nur im Text nennt, ist euch überlassen.
+
+### a) Erläuterung des Pinguindatensatzes
+
+Wie viele Pinguine sind im Datensatz, welche Variablen gibt es und was bedeuten sie,
+wie viele fehlende Werte liegen vor?
+
+Welches Package muss zusätzlich geladen werden und welche/r Befehl/e sind geeignet, um die Fragen zu beantworten?
+
+Hilfe dazu: Vorlesung 3 und 4
+
+```{r PinguineDatensatz, exercise=TRUE}
+library(mosaic)
+#library()
+
+
+```
+
+
+## Pflichtabgabe 2 - b) 
+
+Formuliere drei Fragen über die Pinguine und beantworte diese durch Interpretation von Kennzahlen und Visualisierungen wie folgt
+
+Ihr dürft dabei mehrfach dieselbe Variable verwenden oder jeweils eine neue, aber dabei
+das Skalenniveau nicht vergessen. Nutzt dabei:
+
+Ein Säulendiagramm für eine geeignete Variable.
+
+```{r PinguineSaeulendiagramm, exercise=TRUE}
+#library(mosaic)
+#library()
+
+gf_bar(xxx ,data=penguins)
+
+```
+
+
+
+Zwei oder mehrere Säulendiagramme für dieselbe Variable, aufgeteilt nach einer
+anderen Variablen.
+
+
+```{r PinguineZweiSaeulendiagramm, exercise=TRUE}
+
+gf_bar(xxx ,data=penguins)
+
+
+
+```
+
+
+Zwei oder mehrere Boxplots für dieselbe Variable nebeneinander, aufgeteilt nach
+einer anderen Variablen.
+
+
+```{r PinguineBoxplots, exercise=TRUE}
+
+boxplot(xxx, data = tips)
+
+
+
+```
+
+
+
+Ergänzt die Diagramme um geeignete Kennzahlen zur Beantwortung der drei selbst
+gestellten Fragen.
+
+```{r PinguineKennzahlen, exercise=TRUE}
+
+
+
+```
+
+## Pflichtabgabe 2 - c)
+
+Untersuchung der Variablen Flügellänge oder Schnabellänge der Pinguine:
+Nutze ein oder mehrere Histogramme, um die Verteilungsform der untersuchten
+Variablen zu beurteilen. Wie ist die Verteilung, was fällt dabei auf? Ist das arithmetische
+Mittel als „Repräsentant“ für diese Variable geeignet? Ist es sinnvoll, hier die „68-95-
+99,7-Regel“ anzuwenden? Bitte begründen.
+
+```{r PinguineHistogramm, exercise=TRUE}
+
+gf_histogram(xxx , data = penguins, 
+             color= zz, 
+             binwidth=xy, 
+             title="xyz")
+
+
+
+```
+
+
+## Pflichtabgabe 2 - d) und e)
+
+Diese beiden Aufgabenteile hier nochmal der Vollständigkeit halber, aber keine Berechnungen in R nötig.
+
+### d)
+
+Welche ethischen Gesichtspunkte oder Fragen kommen dir im Zusammenhang mit
+dem Pinguindatensatz in den Sinn?
+Formuliere mindestens 2 Aspekte.
+
+
+### e) 
+
+Datenauswertungen werfen zumeist neue Fragen auf:
+Welche Frage ist dir z.B. während der Bearbeitung gekommen? Lässt sie sich mit dem
+Datensatz beantworten oder bräuchte das eine neue Recherche?

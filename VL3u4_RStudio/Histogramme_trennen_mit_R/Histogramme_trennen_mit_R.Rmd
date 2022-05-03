@@ -1,0 +1,95 @@
+---
+title: "Histogramme trennen mit R"
+output: learnr::tutorial
+runtime: shiny_prerendered
+progressive: true
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Historgamme nebeneinander erzeugen
+
+### Rechnungshöhen im tips-Datensatz nach Zeit aufteilen
+
+wie in der Vorlesung 4 vorgestellt, ist es mitunter hilfreich, Histogramme zu "trennen", nach einer weiteren Variablen. Hier führen wir das durch für den tips-Datensatz und die darin enthaltenen Rechnungshöhen (Variable: total_bill), diesmal getrennt nach  der Zeit (Variable: time), um die Ausgaben mittags und abends miteinander zu vergleichen.
+
+Nutze dafür die Funktion `gf_histogram()` wie unten gezeigt. 
+
+VariableFürHistogramm soll dabei diejenige Variable im Tips-Datensatz sein, zu der das Histogramm gezeichnet werden soll und VariablenZumAufteilen die, nach der getrennt werden soll.
+
+
+Hinweis: Denke daran die notwendigen Packages *mosaic* und *reshape2* ggf. zuvor zu installieren (`install.packages("NamedesPackages")`).
+
+Hinweis 2: wie bereits letzte Woche gesehen, ist der "Hashtag" zum Auskommentieren. Um den Code zu verwenden, muss neben der Ersetzung der Variablennamen auch auch dieser gelöscht werden.
+
+```{r Histos_trennen_nebeneinander, exercise=TRUE}
+library(mosaic)
+library(reshape2)
+#gf_histogram(~ VariableFürHistogramm | VeriableZumAufteilen, data = tips, color="black", binwidth=5, title="Gesamtrechnung nach Tageszeit")
+
+```
+
+## Historgamme übereinander erzeugen
+
+Wie auch in Vorlesung 4 zu sehen, können die Histogramme auch übereinander gelegt werden. Dafür sind einige Schritte erforderlich, die wir hier zeigen:
+
+### Schritt 1: Teildatensatz verwenden
+
+
+Befehl `filter` ermöglicht Auswahl von demjenigen Teil der Daten, die eine bestimmte Bedingung erfüllen.
+
+Beispiel: Histogramm nur für Abendessen
+
+```{r Histos_trennen_uebereinander, exercise=TRUE}
+library(mosaic)
+library(reshape2)
+gf_histogram(~total_bill, data=filter(tips,time=="Dinner"), fill="blue", title="Gesamtrechnung für Abendessen")
+```
+
+
+Hier ist also die Aufforderung an R: Nimm die Variable total_bill aus dem tips-Datensatz und verwende nur die Einträge, bei denen gilt "time ist gleich Dinner". Zeichne darüber ein Histogramm in der Farbe blau und schreibe den Titel "Gesamtrechnung für Abendessen" obendrüber.
+
+### Aufgabe
+
+Probiere selbst aus, den Code so zu verändern, dass nur die Mittagessen im Histogramm erscheinen und das in rot.
+
+### Schritt 2: „Pipe-Operator" zum zusammenführen zweier Befehle
+
+Der „Pipe-Operator" `%>%` wird genutzt um mehrere Operationen bzw. Befehle zusammenzufassen bzw. als Gesamtkonstrukt gleichzeitig auszuführen. Ein weiterer Vorteil ist die automatische Anpassung der Achsen an die Teildatensätze.
+
+Beispiel: 
+
+```{r Histos_trennen_uebereinander2, exercise=TRUE}
+library(mosaic)
+library(reshape2)
+
+gf_histogram(~total_bill, data=filter(tips,time=="Dinner"), fill="blue", title="Gesamtrechnung nach Tageszeit") %>% 
+  gf_histogram(~total_bill, data=filter(tips,time=="Lunch"), fill="green")
+
+
+```
+
+### Aufgabe: Trinkgeld im tips-Datensatz nach Zeit aufteilen
+
+Vergleiche nun die Trinkgeldhöhe anhand von übereinander gelegten Histogrammen. Im Code unten fehlen daher diverse Angaben
+
+Vorgehen mit Hilfe der nötigen Fragestellungen:
+
+1)  Welchen Code nutze ich um mir den „Dinner"-Teil der Daten als Histogramm ausgeben zu lassen ?
+
+2)  Welchen Code nutze ich um mir den „Lunch"-Teil der Daten als Histogramm ausgeben zu lassen ?
+
+3)  Wie verknüpfe ich diese beiden Operationen ?
+
+
+```{r Histos_trennen_uebereinander3, exercise=TRUE}
+library(mosaic)
+library(reshape2)
+
+
+
+
+```

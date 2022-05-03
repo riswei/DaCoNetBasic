@@ -1,0 +1,115 @@
+---
+title: "Einführung in R 2.0"
+output: learnr::tutorial
+runtime: shiny_prerendered
+progressive: true
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## R als Taschenrechner 
+
+Führen Sie die folgenden Befehle zunächst einzeln aus, um sich mit einigen grundlegenden
+Funktionen von R vertraut zu machen. Sie können das Skript später auch als Ganzes ausführen lassen und beobachten, wie R automatisch sukzessive Ihre Befehle ausführt.
+
+(1) 2+3*4
+(2) (14-4)*4 
+(3) log(exp(1)) 
+(4) sqrt(16)
+
+```{r Berechnungen, exercise=TRUE}
+
+```
+
+## Hilfefunktion nutzen
+
+Lassen Sie sich die Hilfe für folgende Befehle anzeigen:
+
+(1) mean
+(2) var
+(3) library
+
+Dies können Sie mit den beiden folgenden Möglichkeiten tuen:
+
+- `help(NamedesBefehls)`
+
+- `?NamedesBefehls`
+
+```{r Hilfefunktion, exercise=TRUE}
+
+```
+
+## Variablen zuweisen
+
+Weisen Sie die folgenden Zahlen/Rechnungen einer von Ihnen gewünschten, selbst erstellten
+Variable zu.
+
+(1) 7
+(2) 4+5
+(3) 9*8-4
+(4) „HalloDataLiteracy“
+
+Beispiel: `Variable1 <- 9`
+
+```{r ZuweisenVariablen, exercise=TRUE}
+
+```
+
+
+## Arbeiten mit Vektoren
+
+1. Erstellen Sie einen Zahlen-Vektor x mit 10 beliebigen Einträgen.
+
+Um einen Vektor zu erstellen, nutzen wir folgende Darstellung: 
+
+`NamedesVektor <- c(Zahl1, Zahl2, Zahl3, ..., Zahlx)`
+
+2. Erstellen Sie eine Kopie des Vektors x und nennen Sie diesen y.
+
+Um eine Kopie eines Vektors zu erstellen, nutzen wir folgende Darstellung:
+
+`NamedesneuenVektors <- NamedeszukopierendenVektors`
+
+3. Ändern Sie den Vektor x dergestalt, dass von jedem Eintrag automatisch die Zahl 2
+subtrahiert wird.
+
+Um jeden einzelnen Eintrag um den gleichen Wert zu reduzieren, nutzen wir folgende Darstellung:
+
+`NamedesVektors <- NamedesVektors-Wertderabgezogenwerdensoll`
+
+4. Erstellen Sie einen Vektor z, dessen Einträge halb so groß sind wie die
+des Vektors y.
+
+*Tipp: Nutzen Sie hierzu eine Kombination aus den beiden Aufgabenteilen zuvor.*
+
+5. Testen Sie, ob die Variable x größer ist als die Variable z
+
+Um dies zu vergleichen, nutzen Sie folgende Darstellung:
+
+`Variable1 > Variable2`
+
+```{r Vektoren, exercise=TRUE}
+
+```
+
+## Variable(n) löschen
+
+```{r quiz1}
+quiz(
+  question("Wie lösche ich eine Variable?",
+    answer("delete(NamederVariablen"),
+    answer("rm(NamederVariablen)", correct = TRUE),
+    answer("lösche(NamederVariablen"),
+    answer("remove(NamederVariablen)", correct = TRUE)
+  )
+)
+```
+
+Das Löschen aller Variablen im Global Environment ist entweder per Mausklick auf den Besen im GE Fenster möglich oder mit der Funktion:
+
+`rm.all()`
+
